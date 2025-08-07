@@ -10,8 +10,8 @@ This system connects to a Bitcoin Core node via RPC, continuously monitors for n
 
 Trusted headers come from the management canister (IC Bitcoin mainnet nodes) and if blocks get orphaned, they are deleted from memory and need to be added and processed again.
 
-Keeps the last `MAX_BLOCKS_TO_KEEP` blocks (4 days).
-Allows for up to `BLOCK_WINDOW_SIZE` orphaned blocks.
+Keeps the last `MAX_BLOCKS_TO_KEEP` 576 blocks (4 days).
+Allows for up to `BLOCK_WINDOW_SIZE` 12 orphaned blocks.
 
 
 ## Security
