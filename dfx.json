@@ -1,0 +1,14 @@
+{
+  "canisters": {
+    "btcblocks": {
+      "type": "motoko",
+      "main": "./src/btcblocks.mo"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "cat mops.sources"
+    }
+  },
+  "dfx": "0.28.0"
+}

@@ -1,0 +1,6 @@
+[dependencies]
+base = "0.14.9"
+core = "0.6.0"
+ic = "3.2.0"
+mosup = "0.1.1"
+sha2 = "0.1.6"

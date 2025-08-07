@@ -1,0 +1,5 @@
+--package base .mops/base@0.14.9/src
+--package core .mops/core@0.6.0/src
+--package ic .mops/ic@3.2.0/src
+--package mosup .mops/mosup@0.1.1/src
+--package sha2 .mops/sha2@0.1.6/src
