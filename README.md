@@ -2,11 +2,18 @@
 
 A Bitcoin block processing system that monitors the Bitcoin blockchain, extracts transaction data, and sends it to an Internet Computer (IC) canister for processing.
 
+https://dashboard.internetcomputer.org/canister/3hfui-2aaaa-aaaal-qsrya-cai
+
 ## Overview
 
 This system connects to a Bitcoin Core node via RPC, continuously monitors for new blocks, processes the block data to extract transactions without witness data, and forwards this processed data to an IC canister for storage and analysis.
 
 Trusted headers come from the management canister (IC Bitcoin mainnet nodes) and if blocks get orphaned, they are deleted from memory and need to be added and processed again.
+
+## Warning
+
+Still being tested.
+get_blocks is likely going to require cycles in the future and will be accessible only from canisters.
 
 ## Architecture
 
