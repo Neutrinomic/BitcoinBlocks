@@ -10,6 +10,12 @@ This system connects to a Bitcoin Core node via RPC, continuously monitors for n
 
 Trusted headers come from the management canister (IC Bitcoin mainnet nodes) and if blocks get orphaned, they are deleted from memory and need to be added and processed again.
 
+## Security
+
+Each block is validated by hashing its transactions and confirming that the resulting hash matches the Merkle root in the trusted header. Governance is soon shifting to the Neutrinite DAO.
+
+The off-chain relay can withhold blocks, but it cannot censor transactions, reorder or omit blocks, nor alter any transaction data.
+
 ## Warning
 
 Still being tested.
