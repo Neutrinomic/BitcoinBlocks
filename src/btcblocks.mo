@@ -61,24 +61,24 @@ persistent actor class BtcBlocks() = this {
     };
 
 
-    public query func get_block(height: Nat32) : async R<BlockResponse, ProcessingError> {
+    public query func get_block(height: Nat32) : async BlockResponse {
         let mem_block = Map.get(mem.blocks, Nat32.compare, height);
 
         let prev_block_headers = List.empty<(Nat32, Blob)>();
 
-        label find_prev_headers for (block in Map.reverseEntriesFrom(mem.blocks, Nat32.compare, height - 1)) {
+        if(height > 0) label find_prev_headers for (block in Map.reverseEntriesFrom(mem.blocks, Nat32.compare, height - 1)) {
             List.add(prev_block_headers, (block.0, block.1.header));
             if (block.0 < height - BLOCK_WINDOW_SIZE) break find_prev_headers;
         };
 
         let tip = Option.get(do ? {Map.maxEntry(mem.blocks)!.0}, 0:Nat32);
 
-        #ok({
+        {
             tip;
             block = mem_block;
             prev_block_headers = List.toArray(prev_block_headers);
             total_stored_blocks = Nat32.fromNat(Map.size(mem.blocks));
-        });
+        };
     };
 
     var lock_processing = false;
